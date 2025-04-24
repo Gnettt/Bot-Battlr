@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BotCollection from "./components/BotCollection";
 import YourBotArmy from "./components/BotArmy";
+import SortBar from "./components/SortBar";
 import "./App.css";
 
 function App() {
@@ -33,11 +34,17 @@ function App() {
     });
   };
 
+  const handleSort = (criterion) => {
+  const sortedBots = [...bots].sort((a, b) => b[criterion] - a[criterion]);
+  setBots(sortedBots);
+};
+
   return (
-    <div className="App">
-      <h1> Bot Battlr </h1>
-      <YourBotArmy army={army} onRelease={releaseBot} onDischarge={dischargeBot} />
-      <BotCollection bots={bots} onEnlist={enlistBot} />
+    <div className="container text-center mt-4">
+      <h1 className="mb-4"> Bot Battlr </h1>
+     <SortBar handleSort={handleSort} />
+     <YourBotArmy bots={army} onRelease={releaseBot} onDischarge={dischargeBot} />
+     <BotCollection bots={bots} onEnlist={enlistBot} />
     </div>
   );
 }

@@ -2,12 +2,14 @@ import React from "react";
 
 function SortBar({ handleSort }) {
   return (
-    <div className="sort-bar">
-      <h3>Sort Bots By:</h3>
-      <button onClick={() => handleSort("health")}>Health</button>
-      <button onClick={() => handleSort("damage")}>Damage</button>
-      <button onClick={() => handleSort("armor")}>Armor</button>
-    </div>
+    <div className="my-3">
+  <h4>Sort Bots By:</h4>
+  <div className="btn-group" role="group">
+    <button className="btn btn-outline-secondary" onClick={() => handleSort("health")}>Health</button>
+    <button className="btn btn-outline-secondary" onClick={() => handleSort("damage")}>Damage</button>
+    <button className="btn btn-outline-secondary" onClick={() => handleSort("armor")}>Armor</button>
+  </div>
+</div>
   );
 }
 
